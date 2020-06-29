@@ -5,6 +5,8 @@ from Menus.MenuInputOutput import MenuInputOutput
 from UserInput import userInput
 import numpy as np
 
+from FunctionGraphing.BodeDiagram import BodeDiagram
+
 separation = 30
 
 class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
@@ -165,20 +167,24 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             multiplier = 1
         userInput["inputFreq"] = self.w2.get() * multiplier
         userInput["inputAmplitude"] = self.sineAmp.get()
+        self.controller.showFrame(MenuInputOutput)
         pass
 
     def simulateStep(self):
         userInput["inputFunction"] = "Step"
         userInput["inputFreq"] = 0
         userInput["inputAmplitude"] = self.stepAmp.get()
+        self.controller.showFrame(MenuInputOutput)
         pass
 
     def simulateBode(self):
         userInput["inputFunction"] = "Bode"
+        self.controller.showFrame(BodeDiagram)
         pass
 
     def simulateDist(self):
         userInput["inputFunction"] = "Distribution"
+        self.controller.showFrame(MenuInputOutput)
         pass
 
     def backToHome(self):

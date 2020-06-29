@@ -21,18 +21,26 @@ from Menus.MenuArbitraryPoleZero import MenuArbitraryPoleZero
 from Menus.MenuMode import MenuMode
 from Menus.MenuInputOutput import MenuInputOutput
 
+from FunctionGraphing.BodeDiagram import BodeDiagram
 
 frames = [
     MenuSelectOrder,
+
     MenuFirstOrder,
     MenuSecondOrder,
+
     MenuLowPass,
     MenuHighPass,
     MenuAllPass,
+
     MenuBandPass,
     MenuNotch,
     MenuArbitraryPoleZero,
+
     MenuMode,
+
+    BodeDiagram,
+
     MenuInputOutput,
 ]
 
