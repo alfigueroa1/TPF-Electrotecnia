@@ -128,22 +128,22 @@ class MenuSecondOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOr
 
     def allPassMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuHighPass)
+        self.controller.showFrame(MenuAllPass)
         userInput["type"] = "all"
 
     def arbitraryMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuArbitraryPoleZero)
         userInput["type"] = "guess"
 
     def bandPassMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuBandPass)
         userInput["type"] = "band"
 
     def notchMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuNotch)
         userInput["type"] = "notch"
 
     def backFromSecond(self):

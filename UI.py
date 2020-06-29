@@ -7,11 +7,16 @@
 import tkinter as tk
 from tkinter import *
 from Menus.MenuSelectOrder import MenuSelectOrder
+
 from Menus.MenuFirstOrder import MenuFirstOrder
 from Menus.MenuSecondOrder import MenuSecondOrder
+
 from Menus.MenuLowPass import MenuLowPass
 from Menus.MenuHighPass import MenuHighPass
 from Menus.MenuAllPass import MenuAllPass
+from Menus.MenuBandPass import MenuBandPass
+from Menus.MenuNotch import MenuNotch
+
 from Menus.MenuArbitraryPoleZero import MenuArbitraryPoleZero
 from Menus.MenuMode import MenuMode
 from Menus.MenuInputOutput import MenuInputOutput
@@ -24,6 +29,8 @@ frames = [
     MenuLowPass,
     MenuHighPass,
     MenuAllPass,
+    MenuBandPass,
+    MenuNotch,
     MenuArbitraryPoleZero,
     MenuMode,
     MenuInputOutput,
@@ -44,7 +51,7 @@ class UI(tk.Tk):
 
         # funciones que configuran como es la interfaz gráfica que vamos a utilizar
         self.protocol('WM_DELETE_WINDOW', self.exitFunction)
-        self.title("Ejemplo gui 01")
+        self.title("TP Final Electrotecnia G2")
         self.resizable(width=False, height=False)
         self.minsize(width=700, height=500)
 

@@ -102,12 +102,12 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
 
     def allPassMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuAllPass)
         userInput["type"] = "all"
 
     def arbitraryMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuArbitraryPoleZero)
         userInput["type"] = "guess"
 
     def backFromFirst(self):

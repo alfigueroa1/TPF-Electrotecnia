@@ -55,11 +55,13 @@ class MenuSelectOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOr
 
     def boton1OrdenPresionado(self):
         self.controller.showFrame(MenuFirstOrder)
-        userInput["order"] = 1
+        userInput['order'] = 1
+        print(userInput.get("order"))
 
     def boton2OrdenPresionado(self):
         self.controller.showFrame(MenuSecondOrder)
-        userInput["order"] = 2
+        userInput['order'] = 2
+        print(userInput.get("order"))
 
     def focus(self):
         pass
