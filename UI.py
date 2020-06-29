@@ -33,7 +33,7 @@ startFrame = MenuSelectOrder
 
 
 class UI(tk.Tk):
-    # UI hereda de tk.Tk que es la entidad principal de tkinter
+    # UI hereda de tk.Tk que es la entidad principal de tkinter!
     # UI es el administrador de nuestra interfaz gráfica
 
     def __init__(self, **kwargs):

@@ -5,7 +5,7 @@ from UserInput import userInput
 from Menus.MenuFirstOrder import MenuFirstOrder
 from Menus.MenuSecondOrder import MenuSecondOrder
 
-class MenuSelectOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
+class MenuSelectOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden!
     def __init__(self, parent, controller):
         # parent representa el Frame principal del programa, tenemos que indicarle
         # cuando MenuInputOutput será dibujado
