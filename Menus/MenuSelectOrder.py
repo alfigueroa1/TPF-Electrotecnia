@@ -3,7 +3,7 @@ import Config
 from UserInput import userInput
 
 from Menus.MenuFirstOrder import MenuFirstOrder
-
+from Menus.MenuSecondOrder import MenuSecondOrder
 
 class MenuSelectOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
     def __init__(self, parent, controller):
@@ -33,32 +33,33 @@ class MenuSelectOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOr
             self,
             height=3,
             width=30,
-            text="Filtro de 1er orden",
+            text="1st Order Filter",
             font=Config.SMALL_FONT,
             background="#ccffd5",
             command=self.boton1OrdenPresionado
 
         )
-        self.button1order.pack(side=tk.TOP, expand=1, fill=tk.BOTH, pady=100)
+        self.button1order.pack(side=tk.TOP, expand=1, fill=tk.BOTH, pady=50)
 
         self.button2order = tk.Button(
             self,
             height=3,
             width=30,
-            text="Filtro de 2do orden",
+            text="2nd Order Filter",
             font=Config.SMALL_FONT,
             background="#ccffd5",
             command=self.boton2OrdenPresionado
         )
 
-        self.button2order.pack(side=tk.TOP, expand=1, fill=tk.BOTH, pady=100)
+        self.button2order.pack(side=tk.TOP, expand=1, fill=tk.BOTH, pady=50)
 
     def boton1OrdenPresionado(self):
         self.controller.showFrame(MenuFirstOrder)
-        userInput["order"] = "1er orden"
+        userInput["order"] = 1
 
     def boton2OrdenPresionado(self):
-        pass
+        self.controller.showFrame(MenuSecondOrder)
+        userInput["order"] = 2
 
     def focus(self):
         pass

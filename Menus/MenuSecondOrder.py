@@ -4,12 +4,14 @@ import Menus.MenuSelectOrder                    #WE COMPLEATELY THE CALLER FRAME
 from Menus.MenuLowPass import MenuLowPass
 from Menus.MenuHighPass import MenuHighPass
 from Menus.MenuAllPass import MenuAllPass
+from Menus.MenuBandPass import MenuBandPass
+from Menus.MenuNotch import MenuNotch
 from Menus.MenuArbitraryPoleZero import MenuArbitraryPoleZero
 from UserInput import userInput
 
 separation = 20
 
-class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
+class MenuSecondOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
     def __init__(self, parent, controller):
         # parent representa el Frame principal del programa, tenemos que indicarle
         # cuando MenuInputOutput será dibujado
@@ -26,7 +28,7 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
             self,
             height=1,
             width=50,
-            text="1st Order Filter",
+            text="2nd Order Filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -67,6 +69,30 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
             command=self.allPassMenu
         )
         self.buttonAllPass.pack(expand=0, fill=tk.NONE, pady=separation)
+
+# BAND PASS FILTER BUTTON
+        self.buttonBandPass = tk.Button(
+            self,
+            height=1,
+            width=50,
+            text="Band-pass filter",
+            font=Config.SMALL_FONT,
+            background="#ccffd5",
+            command=self.bandPassMenu
+        )
+        self.buttonBandPass.pack(expand=0, fill=tk.NONE, pady=separation)
+
+# NOTCH FILTER BUTTON
+        self.buttonNotch = tk.Button(
+            self,
+            height=1,
+            width=50,
+            text="Notch filter",
+            font=Config.SMALL_FONT,
+            background="#ccffd5",
+            command=self.notchMenu
+        )
+        self.buttonNotch.pack(expand=0, fill=tk.NONE, pady=separation)
 #ARBITRARY POLE ZERO
         self.buttonArbitraryPoleZero = tk.Button(
             self,
@@ -79,16 +105,16 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
         )
         self.buttonArbitraryPoleZero.pack(expand=0, fill=tk.NONE, pady=separation)
 #Previous Screen
-        self.buttonBackFromFirst = tk.Button(
+        self.buttonBackFromSecond = tk.Button(
             self,
             height=1,
             width=50,
-            text="Previous Screen",
+            text="Select Order",
             font=Config.SMALL_FONT,
             background="#eb1717",
-            command=self.backFromFirst
+            command=self.backFromSecond
         )
-        self.buttonBackFromFirst.pack(expand=0, fill=tk.NONE, pady=separation+30)
+        self.buttonBackFromSecond.pack(side=tk.LEFT, expand=0, fill=tk.NONE, pady=separation+30)
 
     def lowPassMenu(self):
         # cambiamos de frame
@@ -102,7 +128,7 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
 
     def allPassMenu(self):
         # cambiamos de frame
-        self.controller.showFrame(MenuLowPass)
+        self.controller.showFrame(MenuHighPass)
         userInput["type"] = "all"
 
     def arbitraryMenu(self):
@@ -110,7 +136,17 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
         self.controller.showFrame(MenuLowPass)
         userInput["type"] = "guess"
 
-    def backFromFirst(self):
+    def bandPassMenu(self):
+        # cambiamos de frame
+        self.controller.showFrame(MenuLowPass)
+        userInput["type"] = "band"
+
+    def notchMenu(self):
+        # cambiamos de frame
+        self.controller.showFrame(MenuLowPass)
+        userInput["type"] = "notch"
+
+    def backFromSecond(self):
         # cambiamos de frame
         self.controller.showFrame(Menus.MenuSelectOrder.MenuSelectOrder)
 

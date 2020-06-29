@@ -8,7 +8,11 @@ import tkinter as tk
 from tkinter import *
 from Menus.MenuSelectOrder import MenuSelectOrder
 from Menus.MenuFirstOrder import MenuFirstOrder
+from Menus.MenuSecondOrder import MenuSecondOrder
 from Menus.MenuLowPass import MenuLowPass
+from Menus.MenuHighPass import MenuHighPass
+from Menus.MenuAllPass import MenuAllPass
+from Menus.MenuArbitraryPoleZero import MenuArbitraryPoleZero
 from Menus.MenuMode import MenuMode
 from Menus.MenuInputOutput import MenuInputOutput
 
@@ -16,7 +20,11 @@ from Menus.MenuInputOutput import MenuInputOutput
 frames = [
     MenuSelectOrder,
     MenuFirstOrder,
+    MenuSecondOrder,
     MenuLowPass,
+    MenuHighPass,
+    MenuAllPass,
+    MenuArbitraryPoleZero,
     MenuMode,
     MenuInputOutput,
 ]
