@@ -3,9 +3,12 @@ import Config
 import Menus.MenuSelectOrder
 from Menus.MenuInputOutput import MenuInputOutput
 from UserInput import userInput
+import scipy.signal as ss
 import numpy as np
 
 from FunctionGraphing.BodeDiagram import BodeDiagram
+from FunctionGraphing.Distribution import Distribution
+from FunctionGraphing.SignalResponse import SignalResponse
 
 separation = 30
 
@@ -30,7 +33,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             font=Config.SMALL_FONT,
             background="#ffccd5"
         )
-        self.title.pack(side=tk.TOP, fill=tk.BOTH, pady=separation-10)
+        self.title.pack(side=tk.TOP, fill=tk.BOTH, pady=separation - 10)
         ########### SINE SIMULATION ##############
         self.titleSine = tk.Label(
             self,
@@ -40,7 +43,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             font=Config.SMALL_FONT,
             background="#324aa8"
         )
-        self.titleSine.pack(side=tk.TOP,expand=0, fill=tk.BOTH, pady=0)
+        self.titleSine.pack(side=tk.TOP, expand=0, fill=tk.BOTH, pady=0)
 
         self.var = tk.StringVar(self)
         self.var.set("Hz")
@@ -55,7 +58,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
-        self.titleFreq.pack(side=tk.TOP,expand=0, pady=0)
+        self.titleFreq.pack(side=tk.TOP, expand=0, pady=0)
         self.w2 = tk.Scale(self, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL)
         self.w2.pack()
         self.scale.pack()
@@ -68,7 +71,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             font=Config.SMALL_FONT,
             background="#ffccd5"
         )
-        self.titleSineAmp.pack(side=tk.TOP,expand=0, pady=0)
+        self.titleSineAmp.pack(side=tk.TOP, expand=0, pady=0)
         self.sineAmp = tk.Scale(self, from_=0, to=100, resolution=0.1, orient=tk.HORIZONTAL)
         self.sineAmp.pack()
 
@@ -81,7 +84,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             background="#ccffd5",
             command=self.simulateSine
         )
-        self.buttonSine.pack( expand=0, fill=tk.NONE, pady=separation-10)
+        self.buttonSine.pack(expand=0, fill=tk.NONE, pady=separation - 10)
 
         ########### u(t) SIMULATION ##############
         self.titleStep = tk.Label(
@@ -114,7 +117,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             background="#ccffd5",
             command=self.simulateStep
         )
-        self.buttonStep.pack(expand=0, fill=tk.NONE, pady=separation-10)
+        self.buttonStep.pack(expand=0, fill=tk.NONE, pady=separation - 10)
 
         ############ BODE AND POLE/ZERO DISTRIBUTION #########3##
 
@@ -140,7 +143,7 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
         )
         self.buttonDist.pack(side=tk.TOP, expand=0, fill=tk.NONE, pady=0)
 
-        #HOME Screen
+        # HOME Screen
         self.buttonBackToHome = tk.Button(
             self,
             height=1,
@@ -167,24 +170,28 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
             multiplier = 1
         userInput["inputFreq"] = self.w2.get() * multiplier
         userInput["inputAmplitude"] = self.sineAmp.get()
-        self.controller.showFrame(MenuInputOutput)
+
+        self.controller.showFrame(SignalResponse)
         pass
 
     def simulateStep(self):
         userInput["inputFunction"] = "Step"
         userInput["inputFreq"] = 0
         userInput["inputAmplitude"] = self.stepAmp.get()
-        self.controller.showFrame(MenuInputOutput)
+
+        self.controller.showFrame(SignalResponse)
         pass
 
     def simulateBode(self):
         userInput["inputFunction"] = "Bode"
+
         self.controller.showFrame(BodeDiagram)
         pass
 
     def simulateDist(self):
         userInput["inputFunction"] = "Distribution"
-        self.controller.showFrame(MenuInputOutput)
+
+        self.controller.showFrame(Distribution)
         pass
 
     def backToHome(self):
@@ -193,4 +200,3 @@ class MenuMode(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrden
 
     def focus(self):
         pass
-

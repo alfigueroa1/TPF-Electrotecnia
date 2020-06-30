@@ -22,6 +22,9 @@ from Menus.MenuMode import MenuMode
 from Menus.MenuInputOutput import MenuInputOutput
 
 from FunctionGraphing.BodeDiagram import BodeDiagram
+from FunctionGraphing.Distribution import Distribution
+from FunctionGraphing.SignalResponse import SignalResponse
+
 
 frames = [
     MenuSelectOrder,
@@ -40,6 +43,8 @@ frames = [
     MenuMode,
 
     BodeDiagram,
+    SignalResponse,
+    Distribution,
 
     MenuInputOutput,
 ]

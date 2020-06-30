@@ -16,7 +16,7 @@ from scipy import signal
 from numpy import pi
 
 
-class BodeDiagram(tk.Frame):
+class Distribution(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
@@ -26,7 +26,7 @@ class BodeDiagram(tk.Frame):
             self,
             height=1,
             width=50,
-            text="Bode Plot",
+            text="Distribution of Poles/Zeros",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -34,20 +34,6 @@ class BodeDiagram(tk.Frame):
 
         self.H = ss.TransferFunction([1], [1])
         self.getTransf()
-
-        self.f = Figure(figsize=(5, 3), dpi=100)
-
-        self.ax1 = self.f.add_subplot(211)
-
-        self.ax2 = self.f.add_subplot(212)
-
-        self.canvas = FigureCanvasTkAgg(self.f, self)
-        #canvas.show()
-        self.canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-
-        self.toolbar = NavigationToolbar2Tk(self.canvas, self)
-        self.toolbar.update()
-        self.canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
         self.backButton = tk.Button(
             self,
@@ -113,26 +99,9 @@ class BodeDiagram(tk.Frame):
         x2 = logspace(-1, 5, num=1000)
         Bode = ss.bode(self.H, x2)  # Bode diagram.
 
-        self.ax1.set_xscale('log')
-        self.ax1.plot(Bode[0], Bode[1])
-        self.ax1.minorticks_on()
-        self.ax1.grid(which='major', color='black', linewidth=0.8, linestyle='--')
-        self.ax1.grid(which='minor', color='black', linewidth=0.4, linestyle=':')
-        # Sets figure data.
-        self.ax1.set_title('Bode Diagram')
-        self.ax1.set_xlabel('f (log) [Hz]')
-        self.ax1.set_ylabel('log(|H(j2πft)|)')
-
-        self.ax2.set_xscale('log')
-        self.ax2.plot(Bode[0], Bode[2])
-        self.ax2.minorticks_on()
-        self.ax2.grid(which='major', color='black', linewidth=0.8, linestyle='--')
-        self.ax2.grid(which='minor', color='black', linewidth=0.4, linestyle=':')
-        # Sets figure data.
-        self.ax2.set_title('Bode Phase Diagram')
-        self.ax2.set_xlabel('f (log) [Hz]')
-        self.ax2.set_ylabel('Phase [degrees]')
-
+        #########
+        ##ACA HACER COSAS CON GRAFICOS EN BASE A H
+        #########
         self.canvas.draw()
 
         pass
