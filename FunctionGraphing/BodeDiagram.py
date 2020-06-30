@@ -113,6 +113,7 @@ class BodeDiagram(tk.Frame):
         x2 = logspace(-1, 5, num=1000)
         Bode = ss.bode(self.H, x2)  # Bode diagram.
 
+        self.ax1.clear()
         self.ax1.set_xscale('log')
         self.ax1.plot(Bode[0], Bode[1])
         self.ax1.minorticks_on()
@@ -123,6 +124,7 @@ class BodeDiagram(tk.Frame):
         self.ax1.set_xlabel('f (log) [Hz]')
         self.ax1.set_ylabel('log(|H(j2πft)|)')
 
+        self.ax2.clear()
         self.ax2.set_xscale('log')
         self.ax2.plot(Bode[0], Bode[2])
         self.ax2.minorticks_on()
