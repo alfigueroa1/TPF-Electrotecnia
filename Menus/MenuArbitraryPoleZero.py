@@ -1,6 +1,7 @@
 import tkinter as tk
 import Config 
 from UserInput import userInput
+import Menus.MenuSelectOrder
 from Menus.MenuMode import MenuMode
 
 
@@ -113,6 +114,17 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
+        self.buttonBackToMenu = tk.Button(
+            self,
+            height=1,
+            width=50,
+            text="Home Screen",
+            font=Config.SMALL_FONT,
+            background="#eb1717",
+            command=self.back
+        )
+
+
 
     def enter1(self):
 
@@ -210,6 +222,29 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
         self.zero3.delete(0, 'end')
         self.pole3.delete(0, 'end')
 
+    def back(self):
+        if userInput['order'] == 1:
+
+            self.label.pack_forget()
+            self.zero1.pack_forget()
+            self.label2.pack_forget()
+            self.pole1.pack_forget()
+            self.enterButton1.pack_forget()
+
+        if userInput['order'] == 2:
+
+            self.label3.pack_forget()
+            self.zero2.pack_forget()
+            self.label4.pack_forget()
+            self.pole2.pack_forget()
+            self.label5.pack_forget()
+            self.zero3.pack_forget()
+            self.label6.pack_forget()
+            self.pole3.pack_forget()
+            self.enterButton2.pack_forget()
+
+        self.controller.showFrame(Menus.MenuSelectOrder.MenuSelectOrder)
+
 
     def continuar(self):
 
@@ -272,10 +307,10 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
     def focus(self):
         self.title.pack(side=tk.TOP, fill=tk.BOTH)
         self.buttonContinuar.pack_forget()
+        self.buttonBackToMenu.pack_forget()
 
         if userInput['order'] == 1:
 
-            userInput['check'] == 1
 
             self.label = tk.Label(self, text="Zero")
             self.label.pack()
@@ -321,6 +356,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self.enterButton2.pack()
 
         self.buttonContinuar.pack(side=tk.TOP, fill=tk.BOTH, pady=20)
+        self.buttonBackToMenu.pack()
 
         pass
 
