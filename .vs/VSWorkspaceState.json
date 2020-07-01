@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.idea",
-    "\\FunctionGraphing",
+    "\\Config",
     "\\Menus",
     "\\UserInput"
   ],
-  "SelectedNode": "\\FunctionGraphing\\Distribution.py",
+  "SelectedNode": "\\UserInput\\__init__.py",
   "PreviewInSolutionExplorer": false
 }

@@ -98,7 +98,7 @@ class MenuSecondOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOr
             self,
             height=1,
             width=50,
-            text="(Experimental) Enter Pole/Zero",
+            text="Enter Pole/Zero",
             font=Config.SMALL_FONT,
             background="#ccffd5",
             command=self.arbitraryMenu
@@ -114,7 +114,7 @@ class MenuSecondOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOr
             background="#eb1717",
             command=self.backFromSecond
         )
-        self.buttonBackFromSecond.pack(side=tk.LEFT, expand=0, fill=tk.NONE, pady=separation+30)
+        self.buttonBackFromSecond.pack(expand=0, fill=tk.NONE, pady=separation+30)
 
     def lowPassMenu(self):
         # cambiamos de frame

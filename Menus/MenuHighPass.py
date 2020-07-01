@@ -27,7 +27,7 @@ class MenuHighPass(tk.Frame): # heredamos de tk.Frame, padre de MenuPasaBajos
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
-############ FIRST ORDER ######################
+        ############ FIRST ORDER ######################
         self.titleFo = tk.Label(
             self,
             height=1,

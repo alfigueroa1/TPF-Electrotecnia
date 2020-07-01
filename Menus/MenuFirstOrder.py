@@ -72,7 +72,7 @@ class MenuFirstOrder(tk.Frame):  # heredamos de tk.Frame, padre de MenuPrimerOrd
             self,
             height=1,
             width=50,
-            text="(Experimental) Enter Pole/Zero",
+            text="Enter Pole/Zero",
             font=Config.SMALL_FONT,
             background="#ccffd5",
             command=self.arbitraryMenu

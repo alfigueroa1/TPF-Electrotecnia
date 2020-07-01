@@ -3,7 +3,7 @@
 # esta variable permite la comunicación entre distintos Frames
 
 userInput = dict.fromkeys(['order', 'type', 'frequency', 'frequency2', 'gain', 'epsilon', 'inputFunction',
-                          'inputAmplitude', 'inputFreq', 'poles' , 'zeros', 'transf'])
+                          'inputAmplitude', 'inputFreq', 'transf', 'p1', 'p2', 'z1', 'z2'])
 
 #THINGS INSIDE userInput
 
