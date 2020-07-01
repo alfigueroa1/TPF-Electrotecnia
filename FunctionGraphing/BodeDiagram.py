@@ -84,8 +84,6 @@ class BodeDiagram(tk.Frame):
         print("Order ", order, "Type ", filterType, "Freq ", f0, "Gain", k, "Eps ", epsilon)
 
         if order == 1:
-
-
             if filterType == "low":
                 Vout = [k]
                 Vin = [1 / f0, 1]
@@ -93,8 +91,10 @@ class BodeDiagram(tk.Frame):
                 Vout = [k, 0]
                 Vin = [1 / f0, 1]
             elif filterType == "all":
-                Vout = k * [1 / f0, -1]
+                print("selected all")
+                Vout = [k / f0, -k]
                 Vin = [1 / f0, +1]
+                print("Vout ", Vout, "Vin", Vin, "Gain", k)
             elif filterType == "guess":
                 if z1 is None:
                     Vout = [1]
@@ -112,13 +112,13 @@ class BodeDiagram(tk.Frame):
                 Vout = [k, 0, 0]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "all":
-                Vout = k * [pow(1 / f0, 2), -2 * epsilon / f0, 1]
+                Vout = [k*pow(1 / f0, 2), -2*k * epsilon / f0, k]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "band":
                 Vout = [k, 0]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "notch":
-                Vout = k * [pow(1 / f0, 2), 0, 1]
+                Vout = [k*pow(1 / f0, 2), 0, k]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "guess":
                 if (z1 or z2) is None:
@@ -150,6 +150,7 @@ class BodeDiagram(tk.Frame):
                     Vout = [pow(1 / sqrt(z1*z2), 2), (-z1-z2)/(z1*z2), 1]
                     Vin = [pow(1 / sqrt(p1*p2), 2), (-p1-p2)/(p1*p2), 1]
 
+        print("Vout ", Vout, "Vin", Vin)
         self.H = ss.TransferFunction(Vout, Vin)
 
         x2 = logspace(-1, 5, num=1000)
