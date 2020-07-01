@@ -1,5 +1,5 @@
 import tkinter as tk
-import Config
+import Config 
 from UserInput import userInput
 from Menus.MenuMode import MenuMode
 
@@ -22,7 +22,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Configuración polos y ceros",
+            text="Poles and/or zeros configuration",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -31,7 +31,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=10,
-            text="Ingresar",
+            text="Enter",
             font=Config.SMALL_FONT,
 
             command=self.enter1
@@ -40,7 +40,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=10,
-            text="Ingresar 2",
+            text="Enter",
             font=Config.SMALL_FONT,
 
             command=self.enter2
@@ -51,7 +51,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=2,
             width=50,
-            text="Continuar",
+            text="Continue",
             font=Config.SMALL_FONT,
             background="#ccffd5",
             command=self.continuar
@@ -61,7 +61,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa bajos primer orden",
+            text="Low pass first order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -69,7 +69,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa altos primer orden",
+            text="High pass first order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -77,7 +77,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa todo primer orden",
+            text="All pass first order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -85,7 +85,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa bajos segundo orden",
+            text="Low pass second order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -93,7 +93,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa altos segundo orden",
+            text="High pass second order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -101,7 +101,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa todo segundo orden",
+            text="All pass second order filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -109,7 +109,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
             self,
             height=1,
             width=50,
-            text="Filtro pasa banda",
+            text="Band pass filter",
             font=Config.LARGE_FONT,
             background="#ffccd5"
         )
@@ -177,6 +177,7 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
         p2 = userInput.get('p2')
         z1 = userInput.get('z1')
         z2 = userInput.get('z2')
+
 
         if  (p1 != complex(0,0)) and (p2 != complex(0,0)):
             if (z1 or z2) is None:
@@ -274,14 +275,15 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
 
         if userInput['order'] == 1:
 
+            userInput['check'] == 1
 
-            self.label = tk.Label(self, text="Cero")
+            self.label = tk.Label(self, text="Zero")
             self.label.pack()
 
             self.zero1 = tk.Entry(self)
             self.zero1.pack()
 
-            self.label2 = tk.Label(self, text="Polo")
+            self.label2 = tk.Label(self, text="Pole")
             self.label2.pack()
 
             self.pole1 = tk.Entry(self)
@@ -292,25 +294,25 @@ class MenuArbitraryPoleZero(tk.Frame): # heredamos de tk.Frame, padre de MenuPas
 
         if userInput['order'] == 2:
 
-            self.label3 = tk.Label(self, text="Cero 1")
+            self.label3 = tk.Label(self, text="Zero 1")
             self.label3.pack()
 
             self.zero2 = tk.Entry(self)
             self.zero2.pack()
 
-            self.label4 = tk.Label(self, text="Polo 1")
+            self.label4 = tk.Label(self, text="Pole 1")
             self.label4.pack()
 
             self.pole2 = tk.Entry(self)
             self.pole2.pack()
 
-            self.label5 = tk.Label(self, text="Cero 2")
+            self.label5 = tk.Label(self, text="Zero 2")
             self.label5.pack()
 
             self.zero3 = tk.Entry(self)
             self.zero3.pack()
 
-            self.label6 = tk.Label(self, text="Polo 2")
+            self.label6 = tk.Label(self, text="Pole 2")
             self.label6.pack()
 
             self.pole3 = tk.Entry(self)

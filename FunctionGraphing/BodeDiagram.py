@@ -163,7 +163,6 @@ class BodeDiagram(tk.Frame):
         self.ax1.grid(which='minor', color='black', linewidth=0.4, linestyle=':')
         # Sets figure data.
         self.ax1.set_title('Bode Diagram')
-        self.ax1.set_xlabel('f (log) [Hz]')
         self.ax1.set_ylabel('log(|H(j2πft)|)')
 
         self.ax2.clear()
