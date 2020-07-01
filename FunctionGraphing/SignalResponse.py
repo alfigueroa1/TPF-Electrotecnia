@@ -164,7 +164,7 @@ class SignalResponse(tk.Frame):
 
         if xinput == "Sine":
             
-            t = linspace(0, 8, num = 1000)
+            t = linspace(0, 1, num = 1000)
             u = amp*sin(2*pi*finput*t)
             tout, yout, xout = ss.lsim(self.H, U = u, T = t)
             

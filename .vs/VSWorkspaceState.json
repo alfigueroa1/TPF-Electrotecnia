@@ -1,4 +1,9 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\FunctionGraphing",
+    "\\Menus"
+  ],
+  "SelectedNode": "\\UI.py",
   "PreviewInSolutionExplorer": false
 }
