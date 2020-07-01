@@ -99,7 +99,7 @@ class SignalResponse(tk.Frame):
                 Vout = [k, 0]
                 Vin = [1 / f0, 1]
             elif filterType == "all":
-                Vout = k * [1 / f0, -1]
+                Vout = [k / f0, -k]
                 Vin = [1 / f0, +1]
             elif filterType == "guess":
                 if z1 is None:
@@ -118,13 +118,13 @@ class SignalResponse(tk.Frame):
                 Vout = [k, 0, 0]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "all":
-                Vout = k * [pow(1 / f0, 2), -2 * epsilon / f0, 1]
+                Vout = [k * pow(1 / f0, 2), -2 * k * epsilon / f0, k]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "band":
                 Vout = [k, 0]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "notch":
-                Vout = k * [pow(1 / f0, 2), 0, 1]
+                Vout = [k * pow(1 / f0, 2), 0, k]
                 Vin = [pow(1 / f0, 2), 2 * epsilon / f0, 1]
             elif filterType == "guess":
                 if (z1 or z2) is None:
